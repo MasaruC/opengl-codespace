@@ -1,20 +1,22 @@
-#include <GL/freeglut.h>
-void display() {
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include <iostream>
 
-glClear(GL_COLOR_BUFFER_BIT);
-glBegin(GL_TRIANGLES);
-glColor3f(1.0f, 0.0f, 0.0f); glVertex2f(-0.5f, -0.5f);
-glColor3f(0.0f, 1.0f, 0.0f); glVertex2f(0.5f, -0.5f);
-glColor3f(0.0f, 0.0f, 1.0f); glVertex2f(0.0f, 0.5f);
-glEnd();
-glFlush();
-
-}
-int main(int argc, char** argv) {
-glutInit(&argc, argv);
-glutCreateWindow("Test FreeGLUT");
-glutDisplayFunc(display);
-glutMainLoop();
-return 0;
-
+int main() {
+    glfwInit();
+    GLFWwindow* window = glfwCreateWindow(800, 600, "Modern OpenGL", NULL, NULL);
+    glfwMakeContextCurrent(window);
+    
+    glewInit(); // Carga funciones modernas
+    
+    while (!glfwWindowShouldClose(window)) {
+        glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+        
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+    
+    glfwTerminate();
+    return 0;
 }
