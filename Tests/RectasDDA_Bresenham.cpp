@@ -104,45 +104,66 @@ void drawAxes(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top)
 }
 void pintar(int x, int y, float atributo)
 {
-    glPointSize(atributo);
     glBegin(GL_POINTS);
     glVertex2i(x,y);
+    glPointSize(atributo);
 }
+void recta_DDA(int x0, int y0, int x1, int y1) {
+    int x;
+    float dx = x1 - x0;
+    float dy = y1 - y0;
+    float m = dy / dx;
+    int y = y0;
 
-void circunferencia_puntomedio(int R, float atributo){
-    //Discretización valida en el II octante
-    int x = 0;
-    int y = R, d = 1 - R;
     glBegin(GL_POINTS);
-    pintar(x, y, atributo);
-    while(x <= y){
-        pintar(x, y, atributo);
-        pintar(y, x, atributo);
-        pintar(-x, y, atributo);
-        pintar(-y, x, atributo);
-        pintar(-x, -y, atributo);
-        pintar(-y, -x, atributo);
-        pintar(x, -y, atributo);
-        pintar(y, -x, atributo);
-        x++;
-        if (d < 0){
-            d += 2*x + 1;
-        }
-        else{
-            y--;
-            d += 2*(x - y) + 1;
-        }
+    for (int x = x0; x <= x1; x++) {
+        pintar(x, floor(y), 7.0f);
+        y += m;
     }
     glEnd();
     glFlush();
 }
+
+void Algoritmo_Bresenham(int x0, int y0, int x1, int y1)
+{
+    int dx = x1 - x0;
+    int dy = y1 - y0;
+    int d = 2*dy - dx;
+    int dE = 2*dy;
+    int dNE = 2*(dy - dx);
+    int x = x0;
+    int y = y0;
+    pintar(x, y, 7.0f);
+    while (x <= x1)
+    {
+        if (d <= 0)
+        {
+            d += dE;
+            x++;
+        }
+        else
+        {
+            d += dNE;
+            x++;
+            y++;
+        }
+        pintar(x, y, 7.0f);
+    }
+    glEnd();
+}
+
+
 void display(void)
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
     drawAxes(ORTHO_LEFT, ORTHO_RIGHT, ORTHO_BOTTOM, ORTHO_TOP);
+
     glPointSize(7.0f);
-    circunferencia_puntomedio(20, 10.0f);
+    recta_DDA(0, 5, 10, 25);
+    glColor3f(0.0f, 1.0f, 0.0f);
+    Algoritmo_Bresenham(0, 0, 10, 20);
+    glColor3f(0.0f, 0.0f, 1.0f);
 
     glFlush();
 }
