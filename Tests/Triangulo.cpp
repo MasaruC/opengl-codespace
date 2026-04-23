@@ -61,31 +61,63 @@ void drawAxes(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top)
 }
 
 void display() {
+    int N = 16;
     // Limpiar la pantalla con el color de fondo
     glClear(GL_COLOR_BUFFER_BIT);
     glPushMatrix();
 
-    glColor3f(0.0f, 1.0f, 0.0f);
+    // 1. Definir los 3 vértices del triángulo (centrado en la pantalla)
+    float v1[2] = { 0.0f,  18.0f}; // Vértice Superior
+    float v2[2] = {-18.f, -16.0f}; // Vértice Inferior Izquierdo
+    float v3[2] = { 18.0f, -16.0f}; // Vértice Inferior Derecho
+
+    // Opcional: Dibujar el triángulo base (contorno negro)
+    glColor3f(0.0f, 0.0f, 0.0f);
+    glBegin(GL_LINE_LOOP);
+        glVertex2fv(v1);
+        glVertex2fv(v2);
+        glVertex2fv(v3);
+    glEnd();
 
     // 2. Generar las redes de líneas
-    glBegin(GL_LINE_LOOP);
-    // Parametrización de un círculo
-    /*
-    r^2 = x^2 + y^2
-    x = r * cos(t)
-    y = r * sin(t)
-    t = {0; 2\pi}
-    */
-    float radius = 20.0f;
-    for (int i = 0; i <= 9*5; i +=5) {
-        float t = (float)2 * M_PI * i / 9;
-        float x = radius * cos(t);
-        float y = radius * sin(t);
-        glVertex2f(x, y);
+    glBegin(GL_LINES);
+    for(int i = 0; i <= N; ++i) {
+        // Calcular la proporción t (de 0.0 a 1.0)
+        float t = (float)i / N;
+
+        // Calcular el punto actual en cada arista
+        // Arista Izquierda (de V1 a V2)
+        float L_x = v1[0] + t * (v2[0] - v1[0]);
+        float L_y = v1[1] + t * (v2[1] - v1[1]);
+
+        // Arista Inferior (de V2 a V3)
+        float B_x = v2[0] + t * (v3[0] - v2[0]);
+        float B_y = v2[1] + t * (v3[1] - v2[1]);
+
+        // Arista Derecha (de V3 a V1)
+        float R_x = v3[0] + t * (v1[0] - v3[0]);
+        float R_y = v3[1] + t * (v1[1] - v3[1]);
+
+        // --- Trazar las conexiones como se ve en la imagen ---
+
+        // Líneas Rojas: Conectan la Arista Izquierda con la Inferior
+        glColor3f(1.0f, 0.2f, 0.2f); // Color rojo
+        glVertex2f(L_x, L_y);
+        glVertex2f(B_x, B_y);
+
+        // Líneas Azules/Celestes: Conectan la Arista Inferior con la Derecha
+        glColor3f(0.2f, 0.6f, 1.0f); // Color azul claro
+        glVertex2f(B_x, B_y);
+        glVertex2f(R_x, R_y);
+
+        // Líneas Verdes: Conectan la Arista Derecha con la Izquierda
+        glColor3f(0.4f, 0.8f, 0.4f); // Color verde
+        glVertex2f(R_x, R_y);
+        glVertex2f(L_x, L_y);
     }
-    
     glEnd();
     glPopMatrix();
+
     glFlush(); // Asegurar que todo se dibuje en pantalla
 }
 
