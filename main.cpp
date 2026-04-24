@@ -61,29 +61,39 @@ void drawAxes(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top)
 }
 
 void display() {
+    int N = 20;
     // Limpiar la pantalla con el color de fondo
     glClear(GL_COLOR_BUFFER_BIT);
+    drawAxes(-N, N, -N, N);
     glPushMatrix();
-
-    glColor3f(0.0f, 1.0f, 0.0f);
-
-    // 2. Generar las redes de líneas
-    glBegin(GL_LINE_LOOP);
-    // Parametrización de un círculo
-    /*
-    r^2 = x^2 + y^2
-    x = r * cos(t)
-    y = r * sin(t)
-    t = {0; 2\pi}
-    */
-    float radius = 20.0f;
-    for (int i = 0; i <= 9*5; i +=5) {
-        float t = (float)2 * M_PI * i / 9;
-        float x = radius * cos(t);
-        float y = radius * sin(t);
-        glVertex2f(x, y);
-    }
+    //============
+    // Atributos
+    //============
+    glColor3f(0.1f, 0.3f, 0.6f);
+    glBegin(GL_LINES);
+    //============
+    //  Pintado
+    //============
     
+    int v1[2] = {-N, 0};
+    int v2[2] = {N, 0};
+    int v3[2] = {0, N};
+    int v4[2] = {0, -N};
+
+    for (int i = 0; i < N; i++){
+        //Cuadrantes 1
+        glVertex2i(v2[0] - i, 0);
+        glVertex2i(0, 0 + i);
+        //Cuadrante 2
+        glVertex2i(v1[0] + i, 0);
+        glVertex2i(0, 0 + i);
+        //Cuadrante 3
+        glVertex2i(v1[0] + i, 0);
+        glVertex2i(0, 0 - i);
+        //Cuadrante 4
+        glVertex2i(v2[0] - i, 0);
+        glVertex2i(0, 0 - i);
+    }
     glEnd();
     glPopMatrix();
     glFlush(); // Asegurar que todo se dibuje en pantalla
