@@ -1,110 +1,71 @@
 #include <stdlib.h>
-#include <math.h>
 #include <GL/glut.h>
-
-enum DrawType { DRAW_FILL, DRAW_STROKE, DRAW_DASHED };
-
-const GLfloat ORTHO_LEFT   = -30.0f;
-const GLfloat ORTHO_RIGHT  =  30.0f;
-const GLfloat ORTHO_BOTTOM = -30.0f;
-const GLfloat ORTHO_TOP    =  30.0f;
-
-void init(void);
-void display(void);
-void reshape(int,int);
-void computeRegularPolygonVertex(int index, int count, GLfloat radius, GLfloat centerX, GLfloat centerY, GLfloat &x, GLfloat &y);
-void configureDrawMode(DrawType mode);
-void drawShape(int points, GLfloat radius, GLfloat centerX, GLfloat centerY, DrawType mode, GLfloat red, GLfloat green, GLfloat blue);
-void drawAxes(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top);
-
-int main(int argc, char** argv)
-{
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
-    glutInitWindowSize(750,750);
-    glutInitWindowPosition(100,100);
-    glutCreateWindow(argv[0]);
-    init();
-    glutDisplayFunc(display);
-    glutReshapeFunc(reshape);
-    glutMainLoop();
-    return 0;
-}
-
-void init(void)
-{
-    glClearColor(1.0,1.0,1.0,0.0);
-    glShadeModel(GL_FLAT);
-}
-
-void computeRegularPolygonVertex(int index, int count, GLfloat radius, GLfloat centerX, GLfloat centerY, GLfloat &x, GLfloat &y)
-{
-    GLfloat ang = 2.0f * M_PI * index / count;
-    x = centerX + radius * cos(ang);
-    y = centerY + radius * sin(ang);
-}
-
-
-void drawAxes(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top)
-{
-    glPushMatrix();
-    glLineWidth(1.0f);
-    glDisable(GL_LINE_STIPPLE);
-    glColor3f(1.0f, 0.0f, 0.0f);
-    glBegin(GL_LINES);
-    glVertex2f(left, 0.0f);
-    glVertex2f(right, 0.0f);
-    glVertex2f(0.0f, bottom);
-    glVertex2f(0.0f, top);
+// eje es el ángulo a rotar por cada redibujo x en el eje z
+static GLfloat thetaPrima= 0.01;
+// cada nuevo cuadrado es mas grande que el anterior por ladoIncremento
+static GLfloat ladoIncremento = 0.05;
+void cuadrado(float lado) {
+    glBegin(GL_LINE_LOOP);
+    glColor3f(1,0,0);
+    glVertex3f(-lado, -lado, 0);
+    glColor3f(1,0,0);
+    glVertex3f(lado, -lado, 0);
+    glColor3f(1,0,0);
+    glVertex3f(lado, lado, 0);
+    glColor3f(1,0,0);
+    glVertex3f(-lado, lado, 0);
     glEnd();
-    glPopMatrix();
+
 }
-
-void display() {
-    int N = 20;
-    // Limpiar la pantalla con el color de fondo
-    glClear(GL_COLOR_BUFFER_BIT);
-    drawAxes(-N, N, -N, N);
-    glPushMatrix();
-    //============
-    // Atributos
-    //============
-    glColor3f(0.1f, 0.3f, 0.6f);
-    glBegin(GL_LINES);
-    //============
-    //  Pintado
-    //============
-    
-    int v1[2] = {-N, 0};
-    int v2[2] = {N, 0};
-    int v3[2] = {0, N};
-    int v4[2] = {0, -N};
-
-    for (int i = 0; i < N; i++){
-        //Cuadrantes 1
-        glVertex2i(v2[0] - i, 0);
-        glVertex2i(0, 0 + i);
-        //Cuadrante 2
-        glVertex2i(v1[0] + i, 0);
-        glVertex2i(0, 0 + i);
-        //Cuadrante 3
-        glVertex2i(v1[0] + i, 0);
-        glVertex2i(0, 0 - i);
-        //Cuadrante 4
-        glVertex2i(v2[0] - i, 0);
-        glVertex2i(0, 0 - i);
-    }
-    glEnd();
-    glPopMatrix();
-    glFlush(); // Asegurar que todo se dibuje en pantalla
-}
-
-void reshape(int w, int h)
+void display(void)
 {
-    glViewport(0,0,(GLsizei)w, (GLsizei)h);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glOrtho(ORTHO_LEFT, ORTHO_RIGHT, ORTHO_BOTTOM, ORTHO_TOP, -10.0, 10.0);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
+ glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+ glPushMatrix();
+ float ladoinicial = 0.2;
+ for(int i = 0; i < 20; i++) {
+    glRotatef(thetaPrima,0,0,1);
+    cuadrado(ladoinicial + ladoIncremento * i);
+ }
+ glPopMatrix();
+ glFlush();
+// intercambiamos los buffers, el que se muestra y el que esta oculto
+ glutSwapBuffers();
+}
+
+// función para animar
+void girar(void)
+{
+ thetaPrima += 0.5;
+ if(thetaPrima > 360) thetaPrima -= 360.0;
+ display();
+}
+
+// control de ventana (recuerde el volumen de visualización)
+// modifique dicho volumen según su conveniencia
+void myReshape(int w, int h)
+{
+ glViewport(0,0,w,h);
+ glMatrixMode(GL_PROJECTION);
+ glLoadIdentity();
+ if(w <=h)
+glOrtho(-2.0,2.0,-2.0*(GLfloat)h/(GLfloat)w,
+ 2.0*(GLfloat)h/(GLfloat)w, -10.0, 10.0);
+ else
+glOrtho(-2.0*(GLfloat)w/(GLfloat)h,
+ 2.0*(GLfloat)w/(GLfloat)h, -2.0,2.0,-10.0,10.0);
+ glMatrixMode(GL_MODELVIEW);
+}
+int main(int argc, char **argv)
+{
+ glutInit(&argc, argv);
+ glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+ glutInitWindowSize(500,500);
+ glutCreateWindow("Ejercicio 3 Labo 4");
+ glutReshapeFunc(myReshape);
+ glutDisplayFunc(display);
+ glutIdleFunc(girar);
+ glEnable(GL_DEPTH_TEST);
+ glutMainLoop();
+
+ return 0;
 }
