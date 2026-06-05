@@ -1,7 +1,57 @@
 [
 {
   "directory": "/workspaces/opengl-codespace/build",
-  "command": "/usr/bin/g++ -g -o CMakeFiles/app.dir/main.cpp.o -c /workspaces/opengl-codespace/main.cpp",
-  "file": "/workspaces/opengl-codespace/main.cpp"
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/src/Camera.cpp.o -c /workspaces/opengl-codespace/src/Camera.cpp",
+  "file": "/workspaces/opengl-codespace/src/Camera.cpp"
+},
+{
+  "directory": "/workspaces/opengl-codespace/build",
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/src/Mesh.cpp.o -c /workspaces/opengl-codespace/src/Mesh.cpp",
+  "file": "/workspaces/opengl-codespace/src/Mesh.cpp"
+},
+{
+  "directory": "/workspaces/opengl-codespace/build",
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/src/Shader.cpp.o -c /workspaces/opengl-codespace/src/Shader.cpp",
+  "file": "/workspaces/opengl-codespace/src/Shader.cpp"
+},
+{
+  "directory": "/workspaces/opengl-codespace/build",
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/src/main.cpp.o -c /workspaces/opengl-codespace/src/main.cpp",
+  "file": "/workspaces/opengl-codespace/src/main.cpp"
+},
+{
+  "directory": "/workspaces/opengl-codespace/build",
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/vendor/imgui/backends/imgui_impl_glfw.cpp.o -c /workspaces/opengl-codespace/vendor/imgui/backends/imgui_impl_glfw.cpp",
+  "file": "/workspaces/opengl-codespace/vendor/imgui/backends/imgui_impl_glfw.cpp"
+},
+{
+  "directory": "/workspaces/opengl-codespace/build",
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o -c /workspaces/opengl-codespace/vendor/imgui/backends/imgui_impl_opengl3.cpp",
+  "file": "/workspaces/opengl-codespace/vendor/imgui/backends/imgui_impl_opengl3.cpp"
+},
+{
+  "directory": "/workspaces/opengl-codespace/build",
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/vendor/imgui/imgui.cpp.o -c /workspaces/opengl-codespace/vendor/imgui/imgui.cpp",
+  "file": "/workspaces/opengl-codespace/vendor/imgui/imgui.cpp"
+},
+{
+  "directory": "/workspaces/opengl-codespace/build",
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/vendor/imgui/imgui_demo.cpp.o -c /workspaces/opengl-codespace/vendor/imgui/imgui_demo.cpp",
+  "file": "/workspaces/opengl-codespace/vendor/imgui/imgui_demo.cpp"
+},
+{
+  "directory": "/workspaces/opengl-codespace/build",
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/vendor/imgui/imgui_draw.cpp.o -c /workspaces/opengl-codespace/vendor/imgui/imgui_draw.cpp",
+  "file": "/workspaces/opengl-codespace/vendor/imgui/imgui_draw.cpp"
+},
+{
+  "directory": "/workspaces/opengl-codespace/build",
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/vendor/imgui/imgui_tables.cpp.o -c /workspaces/opengl-codespace/vendor/imgui/imgui_tables.cpp",
+  "file": "/workspaces/opengl-codespace/vendor/imgui/imgui_tables.cpp"
+},
+{
+  "directory": "/workspaces/opengl-codespace/build",
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/vendor/imgui/imgui_widgets.cpp.o -c /workspaces/opengl-codespace/vendor/imgui/imgui_widgets.cpp",
+  "file": "/workspaces/opengl-codespace/vendor/imgui/imgui_widgets.cpp"
 }
 ]

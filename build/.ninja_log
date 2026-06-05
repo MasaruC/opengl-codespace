@@ -1,0 +1,13 @@
+# ninja log v5
+0	91	1780678456200763341	CMakeFiles/app.dir/src/Camera.cpp.o	fc7b0743368a73e6
+4	93	1780678456200763341	CMakeFiles/app.dir/src/Shader.cpp.o	71f98ed4209bacc1
+0	98	1780678456202763341	CMakeFiles/app.dir/src/Mesh.cpp.o	1993ad51f11e6319
+98	734	1780678456844763317	CMakeFiles/app.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o	635cb2f7af1ab983
+94	907	1780678457017763310	CMakeFiles/app.dir/vendor/imgui/backends/imgui_impl_glfw.cpp.o	5d59f060ec4b3143
+91	2099	1780678458208763264	CMakeFiles/app.dir/src/main.cpp.o	dc66129110f14ecd
+909	3962	1780678460067763192	CMakeFiles/app.dir/vendor/imgui/imgui_demo.cpp.o	59a133fc55054fa5
+3962	6765	1780678462870763083	CMakeFiles/app.dir/vendor/imgui/imgui_tables.cpp.o	49f03c352371e638
+2104	6805	1780678462905763082	CMakeFiles/app.dir/vendor/imgui/imgui_draw.cpp.o	577edf32619211f9
+738	7014	1780678463117763074	CMakeFiles/app.dir/vendor/imgui/imgui.cpp.o	ffe9b51adfc3a4f4
+6771	8865	1780678464972763002	CMakeFiles/app.dir/vendor/imgui/imgui_widgets.cpp.o	2b02e291b0d28b85
+8865	9165	1780678465273762990	app	fbc5f90e9229af92

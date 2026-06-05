@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "OpenGLApp",
+					"name" : "SistemaRenderizado_PBR",
 					"targetIndexes" : 
 					[
 						0
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "app::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-app-Debug-927ce09036093b48976c.json",
+					"jsonFile" : "target-app-Debug-ae43f1644c66085a0600.json",
 					"name" : "app",
 					"projectIndex" : 0
 				}

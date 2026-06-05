@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: OpenGLApp
+# Project: SistemaRenderizado_PBR
 # Configurations: Debug
 # =============================================================================
 
@@ -49,11 +49,82 @@ cmake_ninja_workdir = /workspaces/opengl-codespace/build/
 
 build cmake_object_order_depends_target_app: phony || CMakeFiles/app.dir
 
-build CMakeFiles/app.dir/main.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-codespace/main.cpp || cmake_object_order_depends_target_app
-  DEP_FILE = CMakeFiles/app.dir/main.cpp.o.d
-  FLAGS = -g
+build CMakeFiles/app.dir/src/Camera.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-codespace/src/Camera.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles/app.dir/src/Camera.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends
   OBJECT_DIR = CMakeFiles/app.dir
-  OBJECT_FILE_DIR = CMakeFiles/app.dir
+  OBJECT_FILE_DIR = CMakeFiles/app.dir/src
+
+build CMakeFiles/app.dir/src/Mesh.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-codespace/src/Mesh.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles/app.dir/src/Mesh.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends
+  OBJECT_DIR = CMakeFiles/app.dir
+  OBJECT_FILE_DIR = CMakeFiles/app.dir/src
+
+build CMakeFiles/app.dir/src/Shader.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-codespace/src/Shader.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles/app.dir/src/Shader.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends
+  OBJECT_DIR = CMakeFiles/app.dir
+  OBJECT_FILE_DIR = CMakeFiles/app.dir/src
+
+build CMakeFiles/app.dir/src/main.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-codespace/src/main.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles/app.dir/src/main.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends
+  OBJECT_DIR = CMakeFiles/app.dir
+  OBJECT_FILE_DIR = CMakeFiles/app.dir/src
+
+build CMakeFiles/app.dir/vendor/imgui/backends/imgui_impl_glfw.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-codespace/vendor/imgui/backends/imgui_impl_glfw.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles/app.dir/vendor/imgui/backends/imgui_impl_glfw.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends
+  OBJECT_DIR = CMakeFiles/app.dir
+  OBJECT_FILE_DIR = CMakeFiles/app.dir/vendor/imgui/backends
+
+build CMakeFiles/app.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-codespace/vendor/imgui/backends/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles/app.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends
+  OBJECT_DIR = CMakeFiles/app.dir
+  OBJECT_FILE_DIR = CMakeFiles/app.dir/vendor/imgui/backends
+
+build CMakeFiles/app.dir/vendor/imgui/imgui.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-codespace/vendor/imgui/imgui.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles/app.dir/vendor/imgui/imgui.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends
+  OBJECT_DIR = CMakeFiles/app.dir
+  OBJECT_FILE_DIR = CMakeFiles/app.dir/vendor/imgui
+
+build CMakeFiles/app.dir/vendor/imgui/imgui_demo.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-codespace/vendor/imgui/imgui_demo.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles/app.dir/vendor/imgui/imgui_demo.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends
+  OBJECT_DIR = CMakeFiles/app.dir
+  OBJECT_FILE_DIR = CMakeFiles/app.dir/vendor/imgui
+
+build CMakeFiles/app.dir/vendor/imgui/imgui_draw.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-codespace/vendor/imgui/imgui_draw.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles/app.dir/vendor/imgui/imgui_draw.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends
+  OBJECT_DIR = CMakeFiles/app.dir
+  OBJECT_FILE_DIR = CMakeFiles/app.dir/vendor/imgui
+
+build CMakeFiles/app.dir/vendor/imgui/imgui_tables.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-codespace/vendor/imgui/imgui_tables.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles/app.dir/vendor/imgui/imgui_tables.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends
+  OBJECT_DIR = CMakeFiles/app.dir
+  OBJECT_FILE_DIR = CMakeFiles/app.dir/vendor/imgui
+
+build CMakeFiles/app.dir/vendor/imgui/imgui_widgets.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-codespace/vendor/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles/app.dir/vendor/imgui/imgui_widgets.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends
+  OBJECT_DIR = CMakeFiles/app.dir
+  OBJECT_FILE_DIR = CMakeFiles/app.dir/vendor/imgui
 
 
 # =============================================================================
@@ -63,9 +134,9 @@ build CMakeFiles/app.dir/main.cpp.o: CXX_COMPILER__app_Debug /workspaces/opengl-
 #############################################
 # Link the executable app
 
-build app: CXX_EXECUTABLE_LINKER__app_Debug CMakeFiles/app.dir/main.cpp.o
+build app: CXX_EXECUTABLE_LINKER__app_Debug CMakeFiles/app.dir/src/Camera.cpp.o CMakeFiles/app.dir/src/Mesh.cpp.o CMakeFiles/app.dir/src/Shader.cpp.o CMakeFiles/app.dir/src/main.cpp.o CMakeFiles/app.dir/vendor/imgui/backends/imgui_impl_glfw.cpp.o CMakeFiles/app.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o CMakeFiles/app.dir/vendor/imgui/imgui.cpp.o CMakeFiles/app.dir/vendor/imgui/imgui_demo.cpp.o CMakeFiles/app.dir/vendor/imgui/imgui_draw.cpp.o CMakeFiles/app.dir/vendor/imgui/imgui_tables.cpp.o CMakeFiles/app.dir/vendor/imgui/imgui_widgets.cpp.o
   FLAGS = -g
-  LINK_LIBRARIES = -lglfw  -lGL  -lGLEW
+  LINK_LIBRARIES = -lglfw  -lGL  -lGLEW  -lglut  -lassimp
   OBJECT_DIR = CMakeFiles/app.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -115,14 +186,14 @@ build all: phony app
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindOpenGL.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/assimp-5.2/assimpConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/assimp-5.2/assimpConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/assimp-5.2/assimpTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/assimp-5.2/assimpTargets.cmake /usr/lib/x86_64-linux-gnu/cmake/draco/draco-config.cmake /usr/lib/x86_64-linux-gnu/cmake/draco/draco-targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/draco/draco-targets.cmake /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindOpenGL.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindOpenGL.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake: phony
+build ../CMakeLists.txt /usr/lib/x86_64-linux-gnu/cmake/assimp-5.2/assimpConfig.cmake /usr/lib/x86_64-linux-gnu/cmake/assimp-5.2/assimpConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/assimp-5.2/assimpTargets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/assimp-5.2/assimpTargets.cmake /usr/lib/x86_64-linux-gnu/cmake/draco/draco-config.cmake /usr/lib/x86_64-linux-gnu/cmake/draco/draco-targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/draco/draco-targets.cmake /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/FindOpenGL.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake: phony
 
 
 #############################################
