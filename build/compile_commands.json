@@ -11,8 +11,18 @@
 },
 {
   "directory": "/workspaces/opengl-codespace/build",
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/src/Model.cpp.o -c /workspaces/opengl-codespace/src/Model.cpp",
+  "file": "/workspaces/opengl-codespace/src/Model.cpp"
+},
+{
+  "directory": "/workspaces/opengl-codespace/build",
   "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/src/Shader.cpp.o -c /workspaces/opengl-codespace/src/Shader.cpp",
   "file": "/workspaces/opengl-codespace/src/Shader.cpp"
+},
+{
+  "directory": "/workspaces/opengl-codespace/build",
+  "command": "/usr/bin/g++ -I/workspaces/opengl-codespace/include -I/workspaces/opengl-codespace/vendor/imgui -I/workspaces/opengl-codespace/vendor/imgui/backends -g -std=gnu++17 -o CMakeFiles/app.dir/src/ShadowMap.cpp.o -c /workspaces/opengl-codespace/src/ShadowMap.cpp",
+  "file": "/workspaces/opengl-codespace/src/ShadowMap.cpp"
 },
 {
   "directory": "/workspaces/opengl-codespace/build",
