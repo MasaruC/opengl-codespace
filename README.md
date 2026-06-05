@@ -180,3 +180,8 @@ Pipeline de Renderizado:
   Datos de       Transformaciones      Píxeles             Color final
   geometría      3D → 2D            generados
 ```
+---
+
+## 🤖 Aviso de uso de Inteligencia Artificial
+
+Este proyecto (o partes de este proyecto) ha sido desarrollado con la asistencia de herramientas de Inteligencia Artificial. El código y los contenidos han sido revisados y adaptados para cumplir con los objetivos del proyecto.
