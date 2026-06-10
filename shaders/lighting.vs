@@ -20,6 +20,8 @@ uniform bool useBlinn;
 
 void main()
 {
+    // traslada, rota y escala tu esfera desde su origen 
+    // (donde se modeló) a su posición real en la escena 3D.
     vec4 worldPos = model * vec4(aPos, 1.0);
     FragPos = worldPos.xyz;
     
