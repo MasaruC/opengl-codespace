@@ -14,11 +14,10 @@ set(OpenGL_GL_PREFERENCE GLVND)
 # 1. BUSCAR LIBRERÍAS INSTALADAS EN EL CODESPACE (APT-GET)
 # ---------------------------------------------------------
 find_package(OpenGL REQUIRED)
-# Assimp nos permite cargar modelos .obj y .gltf
 find_package(assimp REQUIRED)
+find_package(GLEW REQUIRED) # Se añade para usar el target moderno
 
-# Nota sobre GLM: Como es "header-only", se instala en /usr/include 
-# y el compilador de GCC lo encuentra automáticamente. No necesita find_package.
+# Nota sobre GLM: Al ser header-only, GCC lo encuentra automáticamente en /usr/include.
 
 # ---------------------------------------------------------
 # 2. RECOPILAR ARCHIVOS FUENTE
@@ -27,7 +26,6 @@ find_package(assimp REQUIRED)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 # Recopilar los archivos de ImGui (La interfaz gráfica)
-# ImGui no se instala, se compila directamente junto con tu proyecto.
 file(GLOB IMGUI_SOURCES 
     "vendor/imgui/*.cpp"
     "vendor/imgui/backends/imgui_impl_glfw.cpp"
@@ -37,13 +35,11 @@ file(GLOB IMGUI_SOURCES
 # ---------------------------------------------------------
 # 3. CREAR EL EJECUTABLE
 # ---------------------------------------------------------
-# Combina tus clases y las de ImGui en un solo programa llamado "app"
 add_executable(app ${SOURCES} ${IMGUI_SOURCES})
 
 # ---------------------------------------------------------
 # 4. CONFIGURAR LAS RUTAS DE LOS ENCABEZADOS (.h)
 # ---------------------------------------------------------
-# Le decimos al compilador dónde ir a buscar cuando uses #include "..."
 target_include_directories(app PRIVATE 
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/vendor/imgui
@@ -51,14 +47,13 @@ target_include_directories(app PRIVATE
 )
 
 # ---------------------------------------------------------
-# 5. ENLAZAR LIBRERÍAS DINÁMICAS (LINKER)
+# 5. ENLAZAR LIBRERÍAS DINÁMICAS (LINKER) - CORREGIDO
 # ---------------------------------------------------------
-# Conectamos las librerías gráficas y matemáticas al ejecutable final
+# Usamos los nombres de "Target" modernos de CMake para evitar errores de linker
 target_link_libraries(app 
     PRIVATE 
-    glfw        # Ventanas modernas
-    GL          # OpenGL Core
-    GLEW        # Extensiones de OpenGL
-    glut        # FreeGLUT (por si usan primitivas)
-    assimp      # Carga de modelos 3D
+    glfw              # Ventanas
+    GLEW::GLEW        # Extensiones de OpenGL (Target moderno)
+    OpenGL::GL        # OpenGL Core (Target moderno desde find_package)
+    assimp::assimp    # Carga de modelos 3D (Target moderno)
 )
