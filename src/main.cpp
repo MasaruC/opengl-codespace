@@ -110,13 +110,19 @@ int main() {
     int totalVerticesToDraw = vertices.size() / 6; 
 
     // Configurar VAO y VBO
+    //=====================
     unsigned int VBO, VAO;
+    // guarda espacios dentro del VAO y VBO
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
+    // Inicial maquina de estados
+    // Enlaza el VAO y VBO (los datos con sus instrucciones de uso)
     glBindVertexArray(VAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    // Transporte de datos de RAM a GPU
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
-    
+
+    // Asignación de instrucciones
     // Atributo 0: Posiciones
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
