@@ -21,6 +21,8 @@ void checkCompileErrors(unsigned int shader, const std::string& type) {
     }
 }
 
+// Hace el trabajo sucio. Lee los archivos .vs y .fs como simple texto,
+// los envía a la tarjeta gráfica con glShaderSource y los compila.
 Shader::Shader(const char* vertexPath, const char* fragmentPath) {
     std::string vertexCode;
     std::string fragmentCode;
@@ -77,7 +79,6 @@ void Shader::setMat4(const std::string& name, const glm::mat4& mat) const {
 }
 
 void Shader::setVec3(const std::string& name, const glm::vec3& value) const {
-    // Cambiar [0][0] por solo [0]
     glUniform3fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]); 
 }
 
